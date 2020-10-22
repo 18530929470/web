@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<project name="Web-auto" default="run" basedir=".">
+	<!--Task definition for Ant-Contrib-->
+	<taskdef resource="net/sf/antcontrib/antlib.xml" >
+		<classpath>
+			<pathelement location="./lib/ant-contrib-1.0b3.jar" /> 
+		</classpath>
+	</taskdef>
+	<target name="clean" depends="">
+		<delete dir="${basedir}/anttest" />
+		<echo message="Clean anttest folder successfully!" />
+	</target>
+	<target name="compile" depends="clean">
+		<!--create folder for report-->
+		<tstamp>
+			<format property="DSTAMP" pattern="yyyyMMdd" />
+		</tstamp>
+		<tstamp>
+			<format property="TSTAMP" pattern="hhmmss" />
+		</tstamp>
+		<mkdir dir="./report/${DSTAMP}/${TSTAMP}" />
+		<mkdir dir="./report/${DSTAMP}/${TSTAMP}/html" />
+		<!--define reports path-->
+		<property name="reports" location="./report/${DSTAMP}/${TSTAMP}" />
+		<!--create folder for class files-->
+		<mkdir dir="${basedir}/anttest/classes" />
+		<!--compile java source file-->
+		<!--这里将 jdk 路径配置到 path 可以直接使用 javac 找到-->
+		<javac fork="true" executable="javac" srcdir="${basedir}/src" destdir="${basedir}/anttest/classes" encoding="UTF-8" includeantruntime="false" debug="true">
+			<classpath>
+				<fileset dir="${basedir}/lib" includes="*.jar" />
+			</classpath>
+		</javac>
+	</target>
+	<target name="run" depends="compile">
+		<junit printsummary="true" showoutput="true" errorproperty="test.failed" failureproperty="test.failed" >
+			<formatter type="xml" usefile="true" />
+			<sysproperty key="file.encoding" value="UTF-8" />
+			<classpath>
+				<fileset dir="${basedir}/lib" includes="*.jar" />
+				<pathelement path="${basedir}/anttest/classes" />
+			</classpath>	
+			
+		
+			<!--ZCL全单批改流程-->
+			<test name = "TestbaiduTest" todir = "${reports}"/>
+			
+			
+			<!--*****************************21个流程*******************************************-->
+		
+			
+			
+			<!--	<batchtest fork="yes" todir="${reports}" haltonfailure="no" >
+				<fileset dir="${basedir}/anttest/classes">
+					<include name="**/ScriptTest_FCCB_*.class" /> 
+				</fileset>
+			</batchtest> -->
+		</junit>
+		<!--setup junit reports-->
+		<junitreport todir="${reports}">
+			<fileset dir="${reports}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${reports}/html" />
+		</junitreport>
+		<fail if="test.failed">
+			Test is failed.
+		</fail>
+	</target>
+	
+</project>
