@@ -15,7 +15,7 @@ class forTest(unittest.TestCase):
     # 测试用例初始化
     # 打开谷歌浏览器，并进入百度
     def setUp(self) -> None:
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
 
         self.driver.get('http://www.baidu.com')
 
