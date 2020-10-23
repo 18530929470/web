@@ -45,3 +45,31 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
 1603451495416	Marionette	INFO	Listening on port 53971
 1603451495605	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603452659254	geckodriver	INFO	Listening on 127.0.0.1:56933
+1603452662321	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\QINGHU~1.WAN\\AppData\\Local\\Temp\\rust_mozprofileTESz8k"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603452664296	Marionette	INFO	Listening on port 56943
+1603452664337	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603452674809	Marionette	INFO	Stopped listening on port 56943
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1603452685223	geckodriver	INFO	Listening on 127.0.0.1:57021
+1603452688275	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\QINGHU~1.WAN\\AppData\\Local\\Temp\\rust_mozprofileDHTQgb"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603452690266	Marionette	INFO	Listening on port 57031
+1603452690286	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603452696163	Marionette	INFO	Stopped listening on port 57031
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
